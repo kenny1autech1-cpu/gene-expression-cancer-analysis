@@ -97,8 +97,9 @@ gse <- getGEO("GSE42568", GSEMatrix = TRUE)
 2. Open `notebooks/03_ml_classifier.ipynb` in Jupyter and run all cells
 
 ## Key Visualisations
-
-*(add screenshots of your volcano plot, heatmap, and PCA plot here once generated)*
+![PCA Plot](results/figures/pca_plot.png)
+![Volcano Plot](results/figures/volcano_plot.png)
+![Heatmap](results/figures/heatmap.png)
 
 ## What I Learned
 
