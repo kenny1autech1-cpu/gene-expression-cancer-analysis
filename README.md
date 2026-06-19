@@ -40,16 +40,14 @@ reproducible research, biological data interpretation.
 
 ## Results
 
-| Model | Accuracy | AUC-ROC |
-|-------|----------|---------|
-| Logistic Regression | XX% | X.XX |
-| Random Forest | XX% | X.XX |
+| Model | AUC-ROC |
+|-------|---------|
+| Logistic Regression | 0.997 ± 0.005 |
+| Random Forest | 0.978 ± 0.044 |
 
-*(fill in after running your analysis)*
+**Top 10 upregulated in cancer:** 239811_at, 235927_at, 202178_at, 200606_at, 210715_s_at, 225846_at, 244803_at, 213593_s_at, 201418_s_at, 226129_at
 
-**Top 10 upregulated genes:** *(fill in)*
-
-**Top 10 downregulated genes:** *(fill in)*
+**Top 10 downregulated in cancer:** 237351_at, 214505_s_at, 89977_at, 230595_at, 214582_at, 223764_x_at, 219059_s_at, 235670_at, 206930_at, 221295_at
 
 ## Repository Structure
 
