@@ -1,5 +1,5 @@
 # Gene Expression Analysis in Breast Cancer
-### Differential Expression + Machine Learning Classification using RNA-seq Data
+### Differential Expression + Machine Learning Classification using Microarray Data (Affymetrix U133 Plus 2.0)
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![R](https://img.shields.io/badge/R-4.3+-green)
@@ -7,7 +7,7 @@
 
 ## Overview
 
-This project analyses publicly available RNA-seq gene expression data (GSE42568)
+This project analyses publicly available microarray gene expression data (GSE42568)
 to identify differentially expressed genes between breast cancer and healthy tissue,
 and builds a machine learning classifier to predict disease status from expression profiles.
 
@@ -22,14 +22,14 @@ reproducible research, biological data interpretation.
 ## Dataset
 
 - **Source:** NCBI Gene Expression Omnibus — [GSE42568](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42568)
-- **Samples:** 17 normal breast tissue + 121 primary breast tumour samples
+- **Samples:** 17 normal breast tissue + 104 primary breast tumour samples (121 total)
 - **Platform:** Affymetrix Human Genome U133 Plus 2.0 Array
 - **Access:** Free, publicly available
 
 ## Methods
 
-### 1. Differential Expression Analysis (R / DESeq2)
-- Loaded and normalised raw count data using DESeq2
+### 1. Differential Expression Analysis (R / limma)
+- Loaded and normalised microarray data using limma
 - Identified significantly differentially expressed genes (padj < 0.05, |log2FC| > 1)
 - Visualised results with volcano plots and heatmaps
 
@@ -97,11 +97,16 @@ gse <- getGEO("GSE42568", GSEMatrix = TRUE)
 2. Open `notebooks/03_ml_classifier.ipynb` in Jupyter and run all cells
 
 ## Key Visualisations
-![PCA Plot](results/figures/pca_plot.png)
-![Volcano Plot](results/figures/volcano_plot.png)
-![Heatmap](results/figures/heatmap.png)
+## Key Visualisations
 
-## What I Learned
+![PCA Plot](results/figures/pca_plot.png)
+*PCA of all 121 samples — normal (blue) and tumour (red) samples separate naturally along PC1, confirming gene expression profiles differ between conditions.*
+
+![Volcano Plot](results/figures/volcano_plot.png)
+*Volcano plot of 54,675 genes — red dots are the 6,472 significantly differentially expressed genes (padj < 0.05, |log2FC| > 1). Top gene 237351_at is the most statistically significant.*
+
+![Heatmap](results/figures/heatmap_annotated.png)
+*Heatmap of top 50 DE genes — normal samples (right, red) show high expression while tumour samples (left, blue) show consistently low expression, indicating these genes are switched off in cancer.*
 ## Biological Interpretation
 
 ### What is PC2 capturing?
@@ -132,8 +137,10 @@ PC1 separates samples along a general cancer vs normal axis, driven by:
 **Interpretation:** PC1 broadly captures metabolic and cellular stress differences 
 between cancer and normal tissue.
 
-- How RNA-seq count data is structured and normalised
-- Statistical methods for differential expression (Wald test, Benjamini-Hochberg correction)
+## What I Learned
+
+-How microarray gene expression data is structured and normalised
+- Statistical methods for differential expression using limma (moderated t-test, Benjamini-Hochberg correction)
 - How to reduce high-dimensional biological data with PCA before ML
 - The challenges of class imbalance in biological datasets
 
