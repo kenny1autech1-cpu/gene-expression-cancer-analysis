@@ -102,6 +102,35 @@ gse <- getGEO("GSE42568", GSEMatrix = TRUE)
 ![Heatmap](results/figures/heatmap.png)
 
 ## What I Learned
+## Biological Interpretation
+
+### What is PC2 capturing?
+The normal samples cluster high on PC2 while tumour samples sit low. 
+The genes driving PC2 explain why:
+
+| Gene | Full Name | Role in Cancer |
+|------|-----------|----------------|
+| FHL1 | Four and a Half LIM Domain Protein 1 | Known tumour suppressor — frequently switched off in breast cancer |
+| VGLL3 | Vestigial Like Family Member 3 | Directly linked to breast cancer, controls cell growth |
+| ACVR1C | Activin Receptor Type 1C | Part of TGF-beta signalling pathway, commonly disrupted in cancer |
+| ACSM5 | Acyl-CoA Synthetase Medium Chain 5 | Fatty acid metabolism, altered in tumour tissue |
+| PDE3B | Phosphodiesterase 3B | Insulin signalling, disrupted in cancer metabolism |
+
+**Interpretation:** PC2 is capturing tumour suppressor activity. Normal samples score high 
+because these protective genes are still active. Cancer samples score low because these 
+genes have been switched off — a hallmark of cancer progression.
+
+### What is PC1 capturing?
+PC1 separates samples along a general cancer vs normal axis, driven by:
+
+| Gene | Full Name | Role |
+|------|-----------|------|
+| RBFOX1 | RNA Binding Fox-1 Homolog 1 | RNA splicing regulator — cancer cells often show abnormal splicing |
+| OCIAD1 | OCIA Domain Containing 1 | Mitochondrial function — relates to altered cancer cell metabolism |
+| CCDC163 | Coiled-Coil Domain Containing 163 | Less well studied |
+
+**Interpretation:** PC1 broadly captures metabolic and cellular stress differences 
+between cancer and normal tissue.
 
 - How RNA-seq count data is structured and normalised
 - Statistical methods for differential expression (Wald test, Benjamini-Hochberg correction)
